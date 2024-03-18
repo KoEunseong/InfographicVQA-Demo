@@ -10,7 +10,7 @@ col1, col2 = st.columns([1.5, 3])  # 질문 컬럼(col2)이 이미지 컬럼(col
 
 with col1:
     st.header("Image")
-    example_image_path = '/home/ges/level3-cv-productserving-cv-10/data/infographics/images/70538.jpeg'
+    example_image_path = '10019.jpeg'
     
     # 이미지 업로드 버튼
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"], key="uploader")
