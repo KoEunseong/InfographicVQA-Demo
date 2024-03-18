@@ -1,5 +1,6 @@
 from transformers import Pix2StructForConditionalGeneration, Pix2StructProcessor
-model = Pix2StructForConditionalGeneration.from_pretrained("google/pix2struct-infographics-vqa-base").to("cuda")
+# model = Pix2StructForConditionalGeneration.from_pretrained("google/pix2struct-infographics-vqa-base").to("cuda")
+model = Pix2StructForConditionalGeneration.from_pretrained("google/pix2struct-infographics-vqa-base")
 processor = Pix2StructProcessor.from_pretrained("google/pix2struct-infographics-vqa-base")
 
 def get_answer(image, question):
