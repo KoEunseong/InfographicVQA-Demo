@@ -9,7 +9,7 @@ from transformers import Pix2StructForConditionalGeneration, Pix2StructProcessor
 
 # Streamlit UI 구성
 st.set_page_config(layout="wide")  # 전체 페이지를 wide 모드로 설정
-st.title('Visual Question Answering System - Infographic image')
+st.title('Visual Question Answering System - Infographic images')
 # 상태 초기화, answer 키가 없으면 빈 문자열로 초기화
 if 'answer' not in st.session_state:
     st.session_state['answer'] = ""
