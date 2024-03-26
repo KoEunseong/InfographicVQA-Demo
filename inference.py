@@ -5,7 +5,7 @@ processor = Pix2StructProcessor.from_pretrained("google/pix2struct-infographics-
 
 
 
-def get_answer(image, question, model, processor):
+def get_answer(image, question):
     # image = Image.open("/home/ges/level3-cv-productserving-cv-10/data/infographics/images/36919.jpeg")
     # question = "What percentage of Canadian internet users search for online health information not from home"
     inputs = processor(images=image, text=question, return_tensors="pt")
