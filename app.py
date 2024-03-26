@@ -2,6 +2,11 @@ import streamlit as st
 from PIL import Image
 from inference import get_answer  # inference.py에서 get_answer 함수를 임포트
 
+from transformers import Pix2StructForConditionalGeneration, Pix2StructProcessor
+# model = Pix2StructForConditionalGeneration.from_pretrained("google/pix2struct-infographics-vqa-base").to("cuda")
+model = Pix2StructForConditionalGeneration.from_pretrained("google/pix2struct-infographics-vqa-base")
+processor = Pix2StructProcessor.from_pretrained("google/pix2struct-infographics-vqa-base")
+
 # Streamlit UI 구성
 st.set_page_config(layout="wide")  # 전체 페이지를 wide 모드로 설정
 st.title('Visual Question Answering System - Infographic image')
@@ -31,7 +36,7 @@ with col2:
     # How much revenue in billions is expected from foreign spectators
     if st.button('Get Answer', key="answer_button"):
         if question:  # 이미지가 있든 없든, 질문이 있으면 정답을 찾음
-            st.session_state['answer'] = get_answer(image, question)
+            st.session_state['answer'] = get_answer(image, question, model, processor)
         else:
             st.session_state['answer'] = "Please enter a question."
     st.header("Answer")
