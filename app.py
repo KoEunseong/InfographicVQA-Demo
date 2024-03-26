@@ -33,10 +33,10 @@ with col2:
 
     if st.button('Get Answer', key="answer_button"):
         if question:  # 이미지가 있든 없든, 질문이 있으면 정답을 찾음
-            inputs = processor(images=image, text=question, return_tensors="pt")
-            # ins = processor(images = image,text=question,return_tensors='pt').to('cuda')
-            predictions = model.generate(**inputs)
-            pred = processor.decode(predictions[0], skip_special_tokens=True)
+            # inputs = processor(images=image, text=question, return_tensors="pt")
+            # # ins = processor(images = image,text=question,return_tensors='pt').to('cuda')
+            # predictions = model.generate(**inputs)
+            # pred = processor.decode(predictions[0], skip_special_tokens=True)
 
             st.session_state['answer'] = get_answer(image, question)
             # st.session_state['answer'] = pred
