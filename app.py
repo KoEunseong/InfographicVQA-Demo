@@ -32,13 +32,22 @@ with col1:
 with col2:
     model = Pix2StructForConditionalGeneration.from_pretrained("google/pix2struct-infographics-vqa-base")
     processor = Pix2StructProcessor.from_pretrained("google/pix2struct-infographics-vqa-base")
+    
+    
+    
     st.header("Question")
     example_question = 'How much revenue in billions is expected from foreign spectators?'
     question = st.text_input("Enter your question about the image:",placeholder=example_question ,key="question")  # 질문 입력란
     # How much revenue in billions is expected from foreign spectators
     if st.button('Get Answer', key="answer_button"):
         if question:  # 이미지가 있든 없든, 질문이 있으면 정답을 찾음
-            st.session_state['answer'] = get_answer(image, question, model, processor)
+            inputs = processor(images=image, text=question, return_tensors="pt")
+            # ins = processor(images = image,text=question,return_tensors='pt').to('cuda')
+            predictions = model.generate(**inputs)
+            pred = processor.decode(predictions[0], skip_special_tokens=True)
+            
+            # st.session_state['answer'] = get_answer(image, question, model, processor)
+            st.session_state['answer'] = pred
         else:
             st.session_state['answer'] = "Please enter a question."
     st.header("Answer")
