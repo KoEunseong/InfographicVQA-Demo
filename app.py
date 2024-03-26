@@ -6,10 +6,6 @@ from transformers import Pix2StructForConditionalGeneration, Pix2StructProcessor
 model = Pix2StructForConditionalGeneration.from_pretrained("google/pix2struct-infographics-vqa-base")
 processor = Pix2StructProcessor.from_pretrained("google/pix2struct-infographics-vqa-base")
 
-
-model = Pix2StructForConditionalGeneration.from_pretrained("google/pix2struct-infographics-vqa-base")
-processor = Pix2StructProcessor.from_pretrained("google/pix2struct-infographics-vqa-base")
-
 # Streamlit UI 구성
 st.set_page_config(layout="wide")  # 전체 페이지를 wide 모드로 설정
 st.title('Visual Question Answering System - Infographic image')
