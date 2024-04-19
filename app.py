@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 from inference import get_answer  # inference.py에서 get_answer 함수를 임포트
 
-# Streamlit UI 구성
+# Streamlit UI구성
 st.set_page_config(layout="wide")  # 전체 페이지를 wide 모드로 설정
 st.title('Visual Question Answering System - Infographic image')
 # 상태 초기화, answer 키가 없으면 빈 문자열로 초기화
